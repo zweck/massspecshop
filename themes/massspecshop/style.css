@@ -2962,13 +2962,14 @@ img {
 
     display: inline-block;
 
-    margin: -10px 0 0;
+    margin: 15px 0 0;
 
 }
 
 .logo img {
 
     max-width: 50%;
+	min-width: 225px;
 
     vertical-align: baseline;
 

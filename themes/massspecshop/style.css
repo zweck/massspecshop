@@ -3124,11 +3124,11 @@ footer{ background-color:#ECECEC; padding: 35px 0 0; margin: 30px 0 0; }
     text-decoration: none;
     font-family: '33535gillsansmt';
 	border-color: #719a87;
-    border-width: 1px 2px 4px 2px;
+    border-width: 1px 1px 3px 1px;
     border-style: solid;
 }
 
-.contus a:hover	{ text-decoration: none; }
+.contus a:hover	{ text-decoration: none; position: relative; top: 3px; border-width: 1px;}
 .ft_company {
     margin-top: 4px;
     font-size: 11px;

@@ -52,6 +52,8 @@
 
 <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300italic' rel='stylesheet' type='text/css'>
 
+<link href="<?php echo get_template_directory_uri(); ?>/overrides.css" rel='stylesheet' type='text/css'>
+
 
 
 

@@ -136,7 +136,7 @@ http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/
 
   src: url('./fonts/GillSans.eot?#iefix') format('embedded-opentype'),
 
-    url('./fonts/GillSans.woff') format('woff'), 
+    url('./fonts/GillSans.woff') format('woff'),
 
     url('./fonts/GillSans.ttf')  format('truetype'),
 
@@ -2991,7 +2991,7 @@ img {
     border-radius: 5px;
     border: 1px solid #719a87; */
     border-radius: 5px;
-   
+
     color: #6f8399;
     display: inline;
     font-family: "33535gillsansmt";
@@ -3036,7 +3036,14 @@ img {
 
    }
 
-.services_menu ul li a	{ text-decoration: none;  color: #6f8399; font-family: '33535gillsansmt'; font-size: 16px;  }
+.services_menu ul li a	{
+	padding: 8px 24px;
+	display: block;
+	text-decoration: none;
+	color: #6f8399;
+	font-family: '33535gillsansmt';
+	font-size: 16px;
+}
 
 
 
@@ -3101,7 +3108,7 @@ footer{ background-color:#ECECEC; padding: 35px 0 0; margin: 30px 0 0; }
 
     display: inline-block;
 
-    
+
     padding: 6px 24px;
 
     border-radius: 5px;
@@ -3146,7 +3153,7 @@ footer{ background-color:#ECECEC; padding: 35px 0 0; margin: 30px 0 0; }
     font-weight: 300;
     font-style: italic;
     width: 100%;
-} 
+}
 .page .heading_content h1	{
 	padding:0 0 40px;
 	width: 70%;
@@ -3162,7 +3169,7 @@ footer{ background-color:#ECECEC; padding: 35px 0 0; margin: 30px 0 0; }
 	border-radius:50%;
 	-webkit-border-radius: 50%;
 	 -moz-border-radius: 50%;
-	 -khtml-border-radius: 50%; 
+	 -khtml-border-radius: 50%;
     transform: scale(1);
     margin-left: 15px;
 }
@@ -3214,14 +3221,14 @@ font-size: 15px;
 
 /*=========== product list ============*/
 
-.product-item-wrap p	{ 
+.product-item-wrap p	{
 font-size: 15px;
     color: #000000;
     margin: 8px 0 2px;
-	font-family: '33535gillsansmt'; 
+	font-family: '33535gillsansmt';
 }
 .product-item-wrap span	{ font-size:14px; color:#333333; font-family: '33535gillsansmt'; }
-.product_list_item .col-lg-2, .product_list_item .col-md-2	{ 
+.product_list_item .col-lg-2, .product_list_item .col-md-2	{
 width: 19.666667%;
 }
 .product-item-wrap img	{
@@ -3255,7 +3262,7 @@ font-size: 19px;
     border-color: #719A87 ;
 	border-width: 1px 2px 4px 2px;
     border-bottom-style: solid;
-    border-style: solid; 
+    border-style: solid;
 	padding: 5px;
     font-size: 20px;
     font-weight: 300;
@@ -3283,7 +3290,7 @@ font-size: 19px;
 }
 .links_area a	{ margin:20px 0;}
 
-.enq_form	{ 
+.enq_form	{
 	padding: 0 20px;
     max-width: 70%;
     margin: 35px auto;
@@ -3303,7 +3310,7 @@ font-size: 19px;
     margin: 8px 0;
 	 border-top:0;
 	 border-right:0;
-	 border-left:0; 
+	 border-left:0;
 	 border-radius: 0;
 }
 
@@ -3430,7 +3437,7 @@ img#wpstats {
 /* Maximum width of 767 pixels. */
 
 @media screen and (max-width: 767px) {
-.product_list_item .col-sm-6, .product_list_item .col-xs-6	{ 
+.product_list_item .col-sm-6, .product_list_item .col-xs-6	{
 width: 49.666667%;
 }
 /*.desktop { display:none;}
@@ -3483,7 +3490,7 @@ width: 49.666667%;
 	box-shadow: none; border:none;
 	position:absolute;
 	left:20px;
-	top:6px;  
+	top:6px;
 }
 .logo {
     margin: 0 auto;
@@ -3568,8 +3575,11 @@ transition:all 0.5s ease;
 }
 /*.services_menu ul li 	{ display: block; width: 300px; float: left; }*/
 .services_menu ul li {  width: 47%;margin: 0 8px 20px;}
-.services_menu ul li a { font-size: 26px; padding: 8px 24px;
-    display: block;}
+.services_menu ul li a {
+	font-size: 26px;
+	padding: 8px 24px;
+    display: block;
+}
 .contus a {width: 47%;margin: 0 8px 20px;}
 
 
@@ -3617,7 +3627,7 @@ padding-bottom: 20px;
 	box-shadow: none; border:none;
 	position:absolute;
 	left:20px;
-	top:6px;  
+	top:6px;
 }
 .logo {
     margin: 0 auto;
@@ -3635,12 +3645,12 @@ padding-bottom: 20px;
 }
 .header_menu .menu-header_menu-container ul.nav-menu li{
 	text-decoration:none;
-	
+
     border-color: #6F8399;
     display: inline-block;
     padding: 8px 24px;
     border-radius: 5px;
-   
+
     border-width: 1px 2px 4px 2px;
     border-bottom-style: solid;
     border-style: solid;
@@ -3706,7 +3716,7 @@ transition:all 0.5s ease;
 	box-shadow: none; border:none;
 	position:absolute;
 	left:20px;
-	top:6px;  
+	top:6px;
 }
 .logo {
     margin: 0 auto;
@@ -3965,8 +3975,8 @@ footer 	{ border-top: 1px solid #000; }
 		width: 80%;
 
 	}
-	
- 
+
+
 
 	.site {
 
@@ -4686,4 +4696,3 @@ footer 	{ border-top: 1px solid #000; }
 	}
 
 }
-

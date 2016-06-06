@@ -2989,19 +2989,23 @@ img {
 
 .header_menu .main-navigation li:last-child a {
     border-radius: 5px;
-    border: 1px solid #719a87; */
+    border: 1px solid #719a87;
     border-radius: 5px;
-
     color: #6f8399;
     display: inline;
     font-family: "33535gillsansmt";
     padding: 8px 15px;
     text-decoration: none;
     border-color: #719a87;
-    border-width: 1px 2px 4px 2px;
+    border-width: 1px 1px 3px 1px;
     border-bottom-style: solid;
     border-style: solid;
+}
 
+.header_menu .main-navigation li:last-child a:hover {
+position: relative;
+border-width: 1px 1px 1px 1px;
+top: 2px;
 }
 
 

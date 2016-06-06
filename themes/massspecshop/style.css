@@ -3128,7 +3128,7 @@ footer{ background-color:#ECECEC; padding: 35px 0 0; margin: 30px 0 0; }
     border-style: solid;
 }
 
-.contus a:hover	{ text-decoration: none; position: relative; top: 3px; border-width: 1px;}
+.contus a:hover	{ text-decoration: none; position: relative; top: 2px; border-width: 1px 1px 1px 1px;}
 .ft_company {
     margin-top: 4px;
     font-size: 11px;
@@ -3261,7 +3261,7 @@ font-size: 19px;
     color: #333;
     background-color: #fff;
     border-color: #719A87 ;
-	border-width: 1px 2px 4px 2px;
+	border-width: 1px 1px 3px 1px;
     border-bottom-style: solid;
     border-style: solid;
 	padding: 5px;
@@ -3269,9 +3269,9 @@ font-size: 19px;
     font-weight: 300;
 }
 .links_area .btn-green:hover {
- background: #719A87;
- transition:all 0.8s ease;
- color:#fff;
+	position: relative;
+	top: 2px;
+	border-width: 1px 1px 1px 1px;
 }
 .links_area .btn-grey {
     color: #333;

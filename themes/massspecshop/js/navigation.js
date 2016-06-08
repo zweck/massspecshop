@@ -32,6 +32,7 @@
 			button.className += ' toggled-on';
 			menu.className += ' toggled-on';
 		}
+
 	};
 } )();
 

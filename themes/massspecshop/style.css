@@ -2966,8 +2966,6 @@ img {
 
 }
 
-.logo img {/* max-width: 50%; */min-width: 180px;vertical-align: baseline;display: inline-block;}
-
 .home h1.entry-title	{ display: none; }
 
 .header_menu	{ float:right;}

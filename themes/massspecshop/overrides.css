@@ -1,8 +1,21 @@
 
-.logo img { max-width: 50%; min-width: 180px;vertical-align: baseline;display: inline-block;}
+.logo img { 
+	max-width: 50%; 
+	min-width: 180px;
+	vertical-align: baseline;
+	display: inline-block;
+}
 
-blockquote { font-family: 'Merriweather', serif; }
-blockquote .testimonial_author cite .testimonial-client {font-style: normal; font-weight: 300; font-size: 15px;}
+blockquote { 
+	font-family: 'Merriweather', serif; 
+}
+
+blockquote .testimonial_author cite .testimonial-client {
+	font-style: normal; 
+	font-weight: 300; 
+	font-size: 15px; 
+	line-height: 25px;
+}
 
 @media screen and (max-width: 767px){
 

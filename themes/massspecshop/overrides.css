@@ -2,7 +2,7 @@
 .logo img { max-width: 50%; min-width: 180px;vertical-align: baseline;display: inline-block;}
 
 blockquote { font-family: 'Merriweather', serif; }
-blockquote .testimonial_author {font-style: normal; font-weight: 300;}
+blockquote .testimonial_author cite .testimonial-client {font-style: normal; font-weight: 300; font-size: 15px;}
 
 @media screen and (max-width: 767px){
 

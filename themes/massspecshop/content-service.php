@@ -41,7 +41,7 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-  
+
   <div class="featured-post">
     <?php _e( 'Featured post', 'twentytwelve' ); ?>
   </div>
@@ -73,11 +73,35 @@
         <div class="slider">
           <div class="flexslider">
             <ul class="slides">
-              <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/product.jpg"> <img src="<?php echo get_template_directory_uri(); ?>/images/product.jpg" /> </li>
-              <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/product.jpg"> <img src="<?php echo get_template_directory_uri(); ?>/images/product.jpg" /> </li>
-              <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/product.jpg"> <img src="<?php echo get_template_directory_uri(); ?>/images/product.jpg" /> </li>
-              <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/product.jpg"> <img src="<?php echo get_template_directory_uri(); ?>/images/product.jpg" /> </li>
-            </ul>
+				<?php
+				$image = get_field('product_photo_1');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>
+
+				<?php
+				$image = get_field('product_photo_2');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>
+
+				<?php
+				$image = get_field('product_photo_3');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>
+
+				<?php
+				$image = get_field('product_photo_4');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>
+
+				<?php
+				$image = get_field('product_photo_5');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>            </ul>
           </div>
         </div>
         <!-- gallery slider end -->
@@ -208,7 +232,7 @@ $(document).on('mailfailed.wpcf7', function () {
 
 
 
- 
+
 
 
 

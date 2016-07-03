@@ -41,7 +41,7 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-  
+
   <div class="featured-post">
     <?php _e( 'Featured post', 'twentytwelve' ); ?>
   </div>
@@ -73,10 +73,35 @@
         <div class="slider">
           <div class="flexslider">
             <ul class="slides">
-              <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/product.jpg"> <img src="<?php echo get_template_directory_uri(); ?>/images/product.jpg" /> </li>
-              <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/product.jpg"> <img src="<?php echo get_template_directory_uri(); ?>/images/product.jpg" /> </li>
-              <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/product.jpg"> <img src="<?php echo get_template_directory_uri(); ?>/images/product.jpg" /> </li>
-              <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/product.jpg"> <img src="<?php echo get_template_directory_uri(); ?>/images/product.jpg" /> </li>
+				<?php
+				$image = get_field('product_photo_1');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>
+
+				<?php
+				$image = get_field('product_photo_2');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>
+
+				<?php
+				$image = get_field('product_photo_3');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>
+
+				<?php
+				$image = get_field('product_photo_4');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>
+
+				<?php
+				$image = get_field('product_photo_5');
+				if( !empty($image) ): ?>
+					<li data-thumb="<?php echo $image['url'];?>"> <img src="<?php echo $image['url'];?>" /> </li>
+				<?php endif; ?>
             </ul>
           </div>
         </div>
@@ -85,8 +110,8 @@
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <div class="pd_details">
-          <h5><?php  the_field('product_name');?><!--Details--></h5>
-          <p><?php  the_field('product_details');?><!--Faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas.Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique.--></p>
+          <h5><?php the_field('product_name');?><!--Details--></h5>
+          <p><?php the_field('product_details');?><!--Faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas.Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique.--></p>
         </div>
         <div class="links_area">
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> <a class="btn btn-block btn-green desktop">Enquire</a> </div>
@@ -208,7 +233,7 @@ $(document).on('mailfailed.wpcf7', function () {
 
 
 
- 
+
 
 
 

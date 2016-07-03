@@ -1,20 +1,29 @@
 
-.logo img { 
-	max-width: 50%; 
+.logo img {
+	max-width: 50%;
 	min-width: 180px;
 	vertical-align: baseline;
 	display: inline-block;
 }
 
-blockquote { 
-	font-family: 'Merriweather', serif; 
+blockquote {
+	font-family: 'Merriweather', serif;
 }
 
 blockquote .testimonial_author cite .testimonial-client {
-	font-style: normal; 
-	font-weight: 300; 
-	font-size: 15px; 
+	font-style: normal;
+	font-weight: 300;
+	font-size: 15px;
 	line-height: 25px;
+}
+
+.site-content article{
+	border-bottom: 0px !important;
+}
+
+.page-template-contact .site-content{
+	margin: 0 auto;
+	float: none;
 }
 
 @media screen and (max-width: 767px){
@@ -41,7 +50,7 @@ blockquote .testimonial_author cite .testimonial-client {
 		position: relative;
 		padding: 0 !important;
 	}
-	
+
 	ul.nav-menu {
 		display: inline-block !important;
 		height: 0;
@@ -55,7 +64,7 @@ blockquote .testimonial_author cite .testimonial-client {
 	ul.nav-menu.toggled-on{
 		height: 135px;
 	}
-	
+
 	.header_part {
 	    padding-bottom: 10px !important;
 	}

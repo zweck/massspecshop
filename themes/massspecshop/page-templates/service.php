@@ -2,7 +2,7 @@
 
 /**
 
- * Template Name: Parts Template
+ * Template Name: Service Template
 
  *
 
@@ -28,38 +28,45 @@
 
 get_header(); ?>
   <div class="container">
+<div class="mob_heading"><h2><?php //the_field('parts_heading_for_mobile');?>Service</h2></div>
 <div class="product_block">
-
 <?php
 
-$taxonomy = 'product-category';
-$terms = get_terms($taxonomy); // Get all terms of a taxonomy
+$args11 = array(
 
-if ( $terms && !is_wp_error( $terms ) ) :
-?>
-  <ul>
-      <?php foreach ( $terms as $term ) { ?>
+    'post_type' => 'services-we-offer',
 
-		  <div class="product_list_item">
-		  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+    'posts_per_page' => -1,
+	'order' => 'ASC'
 
-		   <div class="product-item-wrap">
-			   <a href="<?php echo get_term_link($term->slug, $taxonomy); ?>">
-				   <?php
-					   if (function_exists('get_wp_term_image')) :
-					       $meta_image = get_wp_term_image($term->term_id);
-					   ?>
+    );
 
-					   <img class="attachment-full size-full wp-post-image" src="<?php echo $meta_image; ?>" />
-				   <?php endif;?>
-			   </a>
-			   <br><p><?php echo $term->name; ?></p>
-		  </div>
-		  </div></div>
+$the_query = new WP_Query( $args11 );
 
-      <?php } ?>
-  </ul>
-<?php endif;?>
+						if( $the_query->have_posts() ) {
+
+						while( $the_query->have_posts() ): $the_query->the_post();
+  ?>
+
+  <div class="product_list_item">
+  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+   <div class="product-item-wrap"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full');?></a>
+
+   <br><p><?php the_title(); ?></p>
+  </div>
+  </div></div>
+
+
+
+
+  <?php
+
+ endwhile; }
+
+   // wp_reset_postdata();wp_reset_query();
+
+  ?>
 
 <div class="clearfix"></div>
 

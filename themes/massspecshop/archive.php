@@ -19,45 +19,36 @@
 
 get_header(); ?>
 
-	<section id="primary" class="site-content">
-		<div id="content" role="main">
-
 		<?php if ( have_posts() ) : ?>
-			<header class="archive-header">
-				<h1 class="archive-title"><?php
-					if ( is_day() ) :
-						printf( __( 'Daily Archives: %s', 'twentytwelve' ), '<span>' . get_the_date() . '</span>' );
-					elseif ( is_month() ) :
-						printf( __( 'Monthly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'twentytwelve' ) ) . '</span>' );
-					elseif ( is_year() ) :
-						printf( __( 'Yearly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentytwelve' ) ) . '</span>' );
-					else :
-						_e( 'Archives', 'twentytwelve' );
-					endif;
-				?></h1>
-			</header><!-- .archive-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			<div class="container">
+				<div class="mob_heading"><h2><?php //the_field('parts_heading_for_mobile');?>Parts</h2></div>
+				<div class="product_block">
 
-				/* Include the post format-specific template for the content. If you want to
-				 * this in a child theme then include a file called called content-___.php
-				 * (where ___ is the post format) and that will be used instead.
-				 */
-				get_template_part( 'content', get_post_format() );
+					<div class="product_list_item">
+						<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
 
-			endwhile;
+							<div class="product-item-wrap"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full');?></a>
 
-			twentytwelve_content_nav( 'nav-below' );
-			?>
+								<br><p><?php the_title(); ?></p>
+								<span><?php the_field('parts_price');?></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+
+
+			  <?php
+			   wp_reset_postdata();
+			   wp_reset_query();
+			  ?>
 
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
 
-		</div><!-- #content -->
-	</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php get_sidebar( 'front' ); ?>
 <?php get_footer(); ?>

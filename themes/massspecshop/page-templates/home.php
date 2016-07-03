@@ -78,13 +78,13 @@ get_header(); ?>
 
 <ul>
 
-<li><a href="#">Service</a></li>
+<li><a href="/service">Service</a></li>
 
-<li><a href="#">Instruments</a></li>
+<li><a href="/instruments">Instruments</a></li>
 
-<li><a href="./parts">Parts</a></li>
+<li><a href="/parts">Parts</a></li>
 
-<li><a href="#">About Us</a></li>
+<li><a href="/about-us">About Us</a></li>
 
 </ul>
 

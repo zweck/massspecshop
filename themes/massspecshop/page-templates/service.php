@@ -74,7 +74,7 @@ $the_query = new WP_Query( $args11 );
 
 <div class="testimonial_block">
 <div class="comments">
-<?php echo do_shortcode("[testimonials category='parts_testimonials']"); ?>
+<?php the_field('testimonial'); ?>
 <!--<p>&quot;Steve was extremely helpful in diagnosing our instrument problems remotely, always replying promptly and demonstrating his obvious in depth knowledge of the Waters LCT and GCT instruments in his answers. He helped us bring 2 aged instruments back to life! &quot; &ndash;</p>
 <span>Dr Catherine Botting &ndash; Research Fellow, Honorary lecturer and head of the BRSC Mass Spectrometry and Proteomics facility at University of St Andrews.</span>-->
 </div>

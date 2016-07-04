@@ -26,6 +26,11 @@ blockquote .testimonial_author cite .testimonial-client {
 	float: none;
 }
 
+.site-header > a {
+	display: block;
+	text-align: center;
+}
+
 @media screen and (max-width: 767px){
 
 	.logo img { max-width: 100%; }

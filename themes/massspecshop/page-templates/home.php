@@ -88,7 +88,7 @@ get_header(); ?>
 
 </ul>
 
-<div class="contus"><a href="#">Contact Us</a></div>
+<div class="contus"><a href="/contact-us">Contact Us</a></div>
 
 </div>
 

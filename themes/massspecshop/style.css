@@ -3027,6 +3027,7 @@ top: 2px;
 
 .services_menu ul li:hover{
 	top: 2px;
+	padding-bottom: 10px;
 	border-width: 1px 1px 1px 1px;
 }
 
@@ -3103,7 +3104,7 @@ footer{ background-color:#ECECEC; padding: 35px 0 0; margin: 30px 0 0; }
     display: inline-block;
 
 
-    padding: 6px 24px;
+    padding: 6px 16px;
 
     border-radius: 5px;
 
@@ -4407,19 +4408,25 @@ footer 	{ border-top: 1px solid #000; }
 
 }
 
-.services_menu ul 	{margin: 30px auto;    max-width: 290px;    float: none;    overflow: auto;}
+.services_menu ul 	{margin: 30px auto;    max-width: 320px;    float: none;    overflow: hidden;}
 
 .services_menu ul li {
 
     display: block;
 
-    width: 45%;
+    width: 46%;
 
-    float: left;    margin: 0 7px 20px;    padding: 8px 12px;
+    float: left;
+
+    margin: 0 1.5% 20px;
+
+    padding: 8px;
 
 }
 
 .services_menu ul li a {
+
+    padding: 8px;
 
     font-size: 20px;
 
@@ -4453,20 +4460,10 @@ footer 	{ border-top: 1px solid #000; }
 
 .services_menu ul li {
     display: block;
-    /*width: 130px;*/
+    width: 45%;
     float: left;
-	margin: 0 7px 20px;
+    margin: 0 2% 20px;
 }
-
-.services_menu ul li a {
-
-    font-size: 20px;
-
-    font-weight: 100;
-
-}
-
-
 
 .heading_content h1 {    font-size: 22px; text-align: left;}
 

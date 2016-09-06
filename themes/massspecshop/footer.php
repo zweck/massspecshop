@@ -41,11 +41,11 @@
 		</ul>
 	</div>
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-		<img src='images/paypal.png' />
-		<img src='images/mastercard.png' />
-		<img src='images/maestro.png' />
-		<img src='images/visa.png' />
-		<img src='images/american-express.png' />
+		<img src='<?php echo get_template_directory_uri(); ?>/images/paypal.png' />
+		<img src='<?php echo get_template_directory_uri(); ?>/images/mastercard.png' />
+		<img src='<?php echo get_template_directory_uri(); ?>/images/maestro.png' />
+		<img src='<?php echo get_template_directory_uri(); ?>/images/visa.png' />
+		<img src='<?php echo get_template_directory_uri(); ?>/images/american-express.png' />
 	</div>
 </div>
 

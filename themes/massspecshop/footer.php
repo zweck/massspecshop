@@ -33,17 +33,20 @@
 </div>
 
 <div class="row ft_2">
-<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-	<ul>
-		<li><a href="#">Privacy Policy</a></li>
-		<li><a href="#">Legal information</a></li>
-		<li>All Rights Reserved</li>
-	</ul>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-<!--<div class="ft_company">
-<a target="_blank" href="http://www.websitedesignfirm.co.uk/services/wordpress-website-design/">WordPress Website Design</a>  by <a href="http://www.websitedesignfirm.co.uk/" target="_blank">Website Design Company</a></div>-->
-</div>
+	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+		<ul>
+			<li><a href="#">Privacy Policy</a></li>
+			<li><a href="#">Legal information</a></li>
+			<li>All Rights Reserved</li>
+		</ul>
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+		<img src='images/paypal.png' />
+		<img src='images/mastercard.png' />
+		<img src='images/maestro.png' />
+		<img src='images/visa.png' />
+		<img src='images/american-express.png' />
+	</div>
 </div>
 
 		</div>

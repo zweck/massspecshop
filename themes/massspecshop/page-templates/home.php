@@ -124,7 +124,7 @@ get_header(); ?>
 
 	<h5><?php the_field('block2_heading');?><!--Technical support --></h5>
 
-	<p><?php the_field('block1_content');?>
+	<p><?php the_field('block2_content');?>
     <!--Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse faucibus est ut tortor pellentesque, eu sagittis turpis consequat.--></p>
 
 </div>

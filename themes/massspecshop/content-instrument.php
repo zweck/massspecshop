@@ -106,10 +106,6 @@
           <h5><?php  the_field('product_name');?><!--Details--></h5>
           <p><?php  the_field('product_details');?><!--Faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas.Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique faucibus est ut tortor pellentesque, eu sagittis turpis consequat habitant morbi tristique senectus et netus et malesuada Pellentesque fames ac turpis egestas. Suspendisse. Pellentesque habitant morbi tristique.--></p>
         </div>
-        <div class="links_area">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> <a class="btn btn-block btn-green desktop">Enquire</a> </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> <a class="btn btn-block btn-grey ">Download data PDF</a> </div>
-        </div>
       </div>
     </div>
     <div class=" clearfix"></div>

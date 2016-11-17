@@ -1,4 +1,8 @@
-<?php
+<?php // don't load directly
+if(!defined('ABSPATH')) {
+    die('-1');
+}
+
 /**
  * Update Gmedia plugin
  */
@@ -839,6 +843,14 @@ function gmedia_quite_update() {
                     }
                 }
             }
+        }
+        if(version_compare($current_version, '1.8.55', '<')) {
+            $wpdb->query( "CREATE INDEX `_hash` ON {$wpdb->prefix}gmedia_meta ( meta_value(32) );" );
+
+            $ajax_operations = get_option('gmedia_ajax_long_operations', array());
+            $ajax_operations[] = 'gmedia_hash_files';
+            $ajax_operations = array_unique($ajax_operations);
+            update_option('gmedia_ajax_long_operations', $ajax_operations);
         }
 
         $gmCore->delete_folder($gmCore->upload['path'] . '/module/afflux');

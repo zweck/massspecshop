@@ -3,8 +3,8 @@ Contributors: richardgabriel, ghuger
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=V7HR8DP4EJSYN
 Tags: testimonials, testimonial widget, testimonial feed, random testimonials
 Requires at least: 3.1
-Tested up to: 4.5.1
-Stable tag: 1.35.6
+Tested up to: 4.5.3
+Stable tag: 1.36.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -12,51 +12,41 @@ Easy Testimonials is a simple-to-use plugin for adding Testimonials to your Word
 
 == Description ==
 
-Easy Testimonials is an easy-to-use plugin that allows users to add Testimonials to the sidebar, as a widget, or to embed them into a Page or Post using the shortcode.  The Easy Testimonials plugin also allows you to insert a list of all Testimonials or output a Random Testimonial. Easy Testimonials allows you to include an image with each testimonial - this is a great feature for adding a photo of the testimonial author.
+Easy Testimonials is an easy-to-use plugin that allows users to add Testimonials to the sidebar, as a widget, or to embed testimonials into a Page or Post using the shortcode.  Easy Testimonials also allows you to insert a list of all Testimonials or output a Random Testimonial. Easy Testimonials allows you to include an image with each testimonial - this is a great feature for adding a photo of the testimonial author.  Easy Testimonials uses schema.org compliant markup so that your testimonials appear correctly in search results!
 
 = Easy Testimonials is a great plugin for: =
-* Adding a Random Testimonial to Your Sidebar
-* Adding a Random Testimonial to Your Page
+* Adding Random Testimonials to Your Sidebar
+* Adding Random Testimonials to Your Page
 * Outputting a List of Testimonials
 * Outputting a Fading or Sliding Testimonial Widget
 * Able To Use Multiple Testimonial Themes on the Same Page!
-* Developers love our Filters!
 * Responsive Themes!
 * Displaying an Image with a Testimonial
 * Displaying a Testimonial with a Rating
 * Displaying Testimonials using Schema.org compliant markup
-* Custom Options Allow You to Link Your Testimonials to a Custom Page, Such As a Product Page
-* Testimonial Categories Allow You To Organize Testimonials in Many Ways!
-* Its easy to use interface allows you to manage, edit, create, and delete Testimonials with no new knowledge
+* Options Allow You to Link Your Testimonials to a Page, Such As a Product Page
+* Testimonial Categories Allow You To Easily Organize Testimonials!
+* Easy-to-use interface allows you to manage, edit, create, and delete Testimonials with no new knowledge!
 
 = Pro Features include: =
-* Collect Testimonials: Front-End Testimonial Submission Form Allows Customers to Submit Testimonials on your Website!
-* Multiple Testimonial Forms: setup multiple forms to send to specific Testimonial Categories!
-* Collection Form Spam Prevention: support for Really Simple Captcha and ReCaptcha!
+* Collect Testimonials: Front-End Testimonial Form Allows Customers to Submit Testimonials on your Website!
+* Multiple Testimonial Forms: use multiple forms to send to specific Testimonial Categories!
+* Testimonial Form Spam Prevention: support for Really Simple Captcha and ReCaptcha included!
 * Designer Themes: 75+ professionally designed themes for front end display!
 * Advanced Transitions: including scrolling, flipping, and tiling!
 * Custom Typography Settings: perfectly blend your testimonials into your website with a huge selection of fonts, colors, and sizes, including Google fonts!
 
+Easy Testimonials allows you to set the URL of the View More Link, to display the Testimonial Image, control meta field display, and more!  Controlling the URL of the Testimonials view more link enables you to direct visitors to the product info page that the testimonial is about.  Showing an Image next to a Testimonial is a great tool for social proofing!
 
-Easy Testimonials includes options to set the URL of the View More Link, whether or not to display the Testimonial Image, and more!  You can set the URL of the Testimonials read more links for many purposes - such as directing visitors to the product info page that the testimonial is about.  Showing an Image next to a Testimonial is a great tool!
+Easy Testimonials allows display of custom excerpted Testimonials.  Display custom excerpts in your widgets that draw your visitors into your Testimonial archive!
 
-Easy Testimonials allows display of shortened Testimonials that link through to their full versions.  Display custom excerpts in your widgets that draw your visitors into your Testimonial archive!
+Collecting Testimonials can be a tedious job - fortunately, in the Pro version of Easy Testimonials, adding a form to your website for users to submit Testimonials is a breeze!  Users can even upload an image with their Testimonial!  Easy Testimonials integrates with Really Simple Captcha and ReCaptcha to prevent spam testimonial submissions.
 
-Collecting Testimonials can be a tedious job - fortunately, in the Pro version of Easy Testimonials, adding a form to your website for users to submit Testimonials is a breeze!  Users can even upload an image with their Testimonial!  Easy Testimonials integrates with Really Simple Captcha and ReCaptcha to prevent spam form submissions.
-
-= Why Do I Need Testimonials on My Website? =
-
-Testimonials are a great thing to add to your website, for many reasons.
-
-* Testimonials help potential customers get to know that you are a credible business.
-* Testimonials give you the opportunity to point out specific features or compelling reasons why a customer should buy from you.
-* Testimonials, when used effectively, are a great tool to increase conversions rates on your website!
-
-The Easy Testimonials plugin is the easiest way to start adding your customer testimonials, right now!  Click the Download button now to get started.  The Easy Testimonials plugin will inherit the styling from your Theme - just install and get to work adding your testimonials!
+Easy Testimonials is the easiest way to start adding your customer testimonials, right now!  Click the Download button now to get started.  Easy Testimonials will inherit the styling from your Theme - just install and get to work adding your testimonials!
 
 = Premium Support =
 
-The GoldPlugins team does not provide direct support for the Easy Testimonials plugin on the WordPress.org forums. One on one email support is available to people who have purchased Easy Testimonials Pro only. Easy Testimonials Pro also includes tons of extra themes and advanced features including a Testimonial Collection Form, so you should [upgrade today!](https://goldplugins.com/our-plugins/easy-testimonials-details/upgrade-to-easy-testimonials-pro/ "Upgrade to Easy Testimonials Pro")
+The GoldPlugins team does not provide direct support for Easy Testimonials on the WordPress.org forums. One on one email support is available to people who have purchased Easy Testimonials Pro only. Easy Testimonials Pro also includes tons of extra themes and advanced features including a Testimonial Collection Form, so you should [upgrade today!](https://goldplugins.com/our-plugins/easy-testimonials-details/upgrade-to-easy-testimonials-pro/ "Upgrade to Easy Testimonials Pro")
 
 == Installation ==
 
@@ -280,7 +270,13 @@ We provide the following filters to developers for customizing output even furth
      [testimonials_count status='any']
 -   **Note:** this Shortcode only displays the numerical count -- you will need to add any words yourself. For example, "There are currently [testimonials_count] Testimonials on your website!"
 
-### Ouptting a Testimonials Search Form
+### Outputting an Aggregate Rating of all Testimonials on your Site
+
+-   To display aggregate rating of your Testimonials, use the following shortcode where you want the schema.org markup to appear: 
+     [testimonials_count show_aggregate_rating='1']
+-   **Note:** This will use the Global Item Reviewed option, from your plugin's settings tabs.
+
+### Outputting a Testimonials Search Form
 
 -   To display a form that Searches your Testimonials, use the following shortcode:
      [easy_t_search_testimonials]
@@ -373,6 +369,19 @@ Easy!  Just add the attribute width=500px or width=33% (be sure to use the full 
 14. This is the Testimonial Grid Widget.
 
 == Changelog ==
+
+= 1.36.1 =
+* Update CSS include to prevent validation errors and issues with some optimization methods.
+* Fix aggregate rating count to not include testimonials with no rating.
+* Validation fixes.
+
+= 1.36 =
+* Updates javascript for compatibility.
+* Adds option to control author that Testimonials are submitted under.
+* Adds aggregate rating.
+* Fix issue with pagination on some sites.
+* Update CSS includes to load only the needed CSS on site.
+* Update CSS to work with various CSS minifiers not following @imports correctly.
 
 = 1.35.6 =
 * Bug fix with manually crafted excerpts not appearing correctly.
@@ -866,4 +875,4 @@ Easy!  Just add the attribute width=500px or width=33% (be sure to use the full 
 
 == Upgrade Notice ==
 
-= 1.35.6: Fix manually crafted excerpts not appearing correctly.
+= 1.36.1: Fixes available!

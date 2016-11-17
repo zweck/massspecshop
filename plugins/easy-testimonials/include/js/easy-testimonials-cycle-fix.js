@@ -41,7 +41,7 @@ jQuery(document).ready(function () {
 		}
 	}
 	
-	jQuery(".cycle-slideshow").ezt_cycle({
+	jQuery(".cycle-slideshow").gp_cycle({
 		'slides': cycleSlides,
 		'timeout': cycleTimeout,
 		'fx': cycleFx,

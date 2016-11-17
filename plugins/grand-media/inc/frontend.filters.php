@@ -2,6 +2,9 @@
 /**
  * FrontEnd Filters
  */
+if(!defined('ABSPATH')) {
+    exit;
+} // Exit if accessed directly
 
 add_action('pre_get_posts', 'gmedia_alter_query');
 
@@ -371,7 +374,7 @@ function gmedia_post_type__the_content($content){
         if('get_the_excerpt' != current_filter()){
             $term_id = get_post_meta($post->ID, '_gmedia_term_ID', true);
             if(in_array($post->post_type, array('gmedia_album'))){
-                $content .= do_shortcode("[gm id={$term_id} module=phantom]");
+                $content .= do_shortcode("[gm id={$term_id}]");
             } elseif($post->post_type == 'gmedia_gallery'){
                 $content .= do_shortcode("[gmedia id={$term_id}]");
             }

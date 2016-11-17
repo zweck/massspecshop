@@ -65,11 +65,11 @@ function gmedia_item_more_data(&$item) {
     $item->url  = $gmCore->upload['url'] . '/' . $gmGallery->options['folder'][$type[0]] . '/' . $item->gmuid;
     $item->path = $gmCore->upload['path'] . '/' . $gmGallery->options['folder'][$type[0]] . '/' . $item->gmuid;
 
-    if(function_exists('exif_imagetype')) {
-        $item->editor = (('image' == $type[0]) && in_array(exif_imagetype($item->path), array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG)))? true : false;
-    } else {
+//    if(function_exists('exif_imagetype')) {
+//        $item->editor = (('image' == $type[0]) && in_array(exif_imagetype($item->path), array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG)))? true : false;
+//    } else {
         $item->editor = (('image' == $type[0]) && in_array($type[1], array('jpeg', 'png', 'gif')))? true : false;
-    }
+//    }
     $item->gps = '';
     if($item->editor) {
         $item->url_original  = $gmCore->upload['url'] . '/' . $gmGallery->options['folder']['image_original'] . '/' . $item->gmuid;

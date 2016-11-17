@@ -65,7 +65,8 @@ class TestimonialsPlugin_Importer
 					'post_category' => array(1),  // custom taxonomies too, needs to be an array
 					'tags_input'    => $tags,
 					'post_status'   => 'publish',
-					'post_type'     => 'testimonial'
+					'post_type'     => 'testimonial',
+					'post_author' => get_option('easy_t_testimonial_author', 1)
 				);
 			
 				$new_id = wp_insert_post($post);

@@ -122,6 +122,7 @@ class easyTestimonialOptions
 		register_setting( 'easy-testimonials-submission_form_options-settings-group', 'easy_t_captcha_field_error' );	
 		register_setting( 'easy-testimonials-submission_form_options-settings-group', 'easy_t_body_field_error' );	
 		register_setting( 'easy-testimonials-submission_form_options-settings-group', 'easy_t_title_field_error' );	
+		register_setting( 'easy-testimonials-submission_form_options-settings-group', 'easy_t_testimonial_author' );
 		
 		/* Import / Export */
 		register_setting( 'easy-testimonials-import-export-settings-group', 'easy_t_hello_t_json_url' );		
@@ -724,6 +725,7 @@ class easyTestimonialOptions
 		<ul class="gp-admin-quicknav-ul">
 			<li><a href="#field-labels-descriptions">Field Labels and Descriptions</a></li>
 			<li><a href="#submission-notification-options">Submission and Notification Options</a></li>
+			<li><a href="#submission-authoring-options">Submission Authoring Options</a></li>
 			<li><a href="#spam-prevention-captcha">Spam Prevention / Captcha Options</a></li>
 			<li><a href="#error-messages">Error Messages</a></li>
 		</ul>
@@ -1031,6 +1033,32 @@ class easyTestimonialOptions
 					</td>
 				</tr>
 			</table>
+		</fieldset>
+		
+		<h3 id="submission-authoring-options" class="gp-admin-quicknav-h3">Submission Authoring Options</h3>
+		<fieldset>
+			<legend>Authoring Options</legend>
+					
+			<table class="form-table">
+				<tr valign="top">
+					<th scope="row"><label for="easy_t_testimonial_author">Testimonial Author</label></th>
+					<td>
+						<?php
+							$current_author = get_option('easy_t_testimonial_author', 1);
+							
+							$author_dropdown_atts = array(
+								'name' => 'easy_t_testimonial_author',
+								'id' => 'easy_t_testimonial_author',
+								'selected' => $current_author
+							);
+							
+							wp_dropdown_users($author_dropdown_atts);
+						?>
+						<p class="description">Select a desired WordPress user to have Testimonials authored as.  This defaults to the site administrator.</p>
+					</td>
+				</tr>
+			</table>
+			
 		</fieldset>
 		
 		<h3 id="spam-prevention-captcha" class="gp-admin-quicknav-h3">Spam Prevention / Captcha Options</h3>

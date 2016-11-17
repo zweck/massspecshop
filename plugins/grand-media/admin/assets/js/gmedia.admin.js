@@ -248,6 +248,24 @@ var GmediaTerms = {
             e.preventDefault();
         });
 
+        var input = jQuery('.term-shortcode input');
+        input.on('click', function(){
+            this.setSelectionRange(0, 0);
+            this.setSelectionRange(0, this.value.length);
+        });
+        input.on('change', function(){
+            shortcode_inp_autowidth(this);
+        });
+        jQuery.each(input, function(i, e){
+            shortcode_inp_autowidth(this)
+        });
+        function shortcode_inp_autowidth(e) {
+            var inp = jQuery(e),
+                buffer = inp.next('.input-buffer');
+            buffer.text(inp.val());
+            inp.width(buffer.width());
+        }
+
         function edit_tag(tagdiv) {
             var inp = tagdiv.find('.edit_tag_form input');
             var new_tag_name = jQuery.trim(inp.val());
@@ -949,10 +967,10 @@ var GmediaFunction = {
         });
 
         var preset_popover = function () {
-            jQuery('#save_preset').popover({
+            jQuery('#module_presets').popover({
                 container: '#module_preset',
                 content: function () {
-                    return jQuery('#_save_preset').html();
+                    return jQuery('#_module_presets').html();
                 },
                 html: true,
                 placement: 'bottom'
@@ -966,7 +984,7 @@ var GmediaFunction = {
         jQuery('#module_preset').on('click', '.ajax-submit', function (e) {
             e.preventDefault();
             jQuery('body').addClass('gmedia-busy');
-            var form = jQuery('#gmedia-edit-gallery');
+            var form = jQuery('#gmedia-edit-term');
             var post_data = form.serializeArray();
             post_data.push({name: jQuery(this).attr('name'), value: 1});
             var pathname = window.location.href;
@@ -987,7 +1005,7 @@ var GmediaFunction = {
             }
         });
 
-        jQuery('#module_preset').on('click', '.delpreset span', function () {
+        jQuery('#module_preset, .module_presets').on('click', '.delpreset span', function () {
             jQuery('body').addClass('gmedia-busy');
             var module_preset = this;
             var preset_item_li = jQuery(this).closest('li');
@@ -1000,8 +1018,10 @@ var GmediaFunction = {
                     jQuery('#gm-message').append(data.error);
                 } else {
                     preset_item_li.remove();
-                    var _save_preset = jQuery('#module_preset').find('.popover-content').html();
-                    jQuery('#_save_preset').replaceWith('<script type="text/html" id="_save_preset">' + _save_preset + '</script>');
+                    if('module_presets_list' !== jQuery(this).attr('id')) {
+                        var _module_presets = jQuery('#module_preset').find('.popover-content').html();
+                        jQuery('#_module_presets').replaceWith('<script type="text/html" id="_module_presets">' + _module_presets + '</script>');
+                    }
                 }
                 jQuery('body').removeClass('gmedia-busy');
             });

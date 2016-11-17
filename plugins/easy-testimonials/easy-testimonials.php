@@ -4,7 +4,7 @@ Plugin Name: Easy Testimonials
 Plugin URI: https://goldplugins.com/our-plugins/easy-testimonials-details/
 Description: Easy Testimonials - Provides custom post type, shortcode, sidebar widget, and other functionality for testimonials.
 Author: Gold Plugins
-Version: 1.35.6
+Version: 1.36.1
 Author URI: https://goldplugins.com
 Text Domain: easy-testimonials
 
@@ -55,7 +55,7 @@ function easy_testimonials_setup_js() {
 	
 	if(!$disable_cycle2){
 		wp_enqueue_script(
-			'ezt_cycle2',
+			'gp_cycle2',
 			plugins_url('include/js/jquery.cycle2.min.js', __FILE__),
 			array( 'jquery' ),
 			false,
@@ -109,14 +109,18 @@ function easy_testimonials_setup_css() {
 
 	// enqueue Pro CSS files
 	if(isValidKey()) {
-		//five star ratings
-		wp_register_style( 'easy_testimonial_rateit_style', plugins_url('include/css/rateit.css', __FILE__) );
-		wp_enqueue_style( 'easy_testimonial_rateit_style' );
-		
-		//pro themes
-		wp_register_style( 'easy_testimonials_pro_styles', plugins_url('include/css/easy_testimonials_pro.css', __FILE__) );
-		wp_enqueue_style( 'easy_testimonials_pro_styles' );
+		easy_t_register_pro_themes();
 	}	
+}
+
+function easy_t_register_pro_themes(){
+	//five star ratings
+	wp_register_style( 'easy_testimonial_rateit_style', plugins_url('include/css/rateit.css', __FILE__) );
+	wp_enqueue_style( 'easy_testimonial_rateit_style' );
+	
+	//register and enqueue pro style
+	wp_register_style( 'easy_testimonials_pro_style', plugins_url('include/css/easy_testimonials_pro.css', __FILE__) );
+	wp_enqueue_style( 'easy_testimonials_pro_style' );
 }
 
 function easy_t_send_notification_email($submitted_testimonial = array()){
@@ -338,7 +342,8 @@ function easy_testimonials_use_recaptcha()
 function submitTestimonialForm($atts){
 	//load shortcode attributes into an array
 	$atts = shortcode_atts( array(
-		'submit_to_category' => false
+		'submit_to_category' => false,
+		'testimonial_author_id' => get_option('easy_t_testimonial_author', 1),
 	), $atts );
 	
 	extract($atts);
@@ -399,7 +404,8 @@ function submitTestimonialForm($atts){
 					'post_category' => array(),  // custom taxonomies too, needs to be an array
 					'tags_input'    => $tags,
 					'post_status'   => 'pending',
-					'post_type'     => 'testimonial'
+					'post_type'     => 'testimonial',
+					'post_author' 	=> $testimonial_author_id
 				);
 			
 				$new_id = wp_insert_post($post);
@@ -593,7 +599,8 @@ function easy_testimonials_setup_custom_css() {
 //if nothing is passed, displays count of all testimonials
 //$status is the status of the testimonials to be included in the count
 //defaults to published testimonials only
-function easy_testimonials_count($category = '', $status = 'publish'){
+//if $aggregate_rating is set to true, this will output the aggregate rating markup for the counted testimonials
+function easy_testimonials_count($category = '', $status = 'publish', $show_aggregate_rating = false){
 	$tax_query = array();	
 	
 	//if a category slug was passed
@@ -611,26 +618,61 @@ function easy_testimonials_count($category = '', $status = 'publish'){
 	$args = array (
 		'post_type' => 'testimonial',
 		'tax_query' => $tax_query,
-		'post_status' => $status
+		'post_status' => $status,
+		'nopaging' => true
 	);
-	
+		
 	$count_query = new WP_Query( $args );
 	
-	$count = $count_query->found_posts;
+	//if the option to show aggregate rating is toggling
+	//construct and return the aggregate rating output
+	//instead of just returning the numerical count
+	if($show_aggregate_rating){		
+		
+		//calculate average review value
+		$total_rating = 0;
+		$total_rated_testimonials = 0;//only want to divide by the number of testimonials with actual ratings
+		
+		//TBD: allow control over item rating is displayed about
+		$item_reviewed = get_option('easy_t_global_item_reviewed','');
+		
+		foreach ($count_query->posts as $testimonial){
+			$testimonial_rating = get_post_meta($testimonial->ID, '_ikcf_rating', true);
+			
+			if(intval($testimonial_rating) > 0){				
+				$total_rated_testimonials ++;
+				$total_rating += $testimonial_rating;
+			}
+		}
+
+		$average_rating = $total_rating / $total_rated_testimonials;
+		
+		$output = '
+			<div class="easy_t_aggregate_rating_wrapper" itemscope itemtype="http://schema.org/Product">
+				<span class="easy_t_aggregate_rating_item" itemprop="name">' . $item_reviewed . '</span>
+				<div class="easy_t_aggregate_rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">Rated <span class="easy_t_aggregate_rating_top_count" itemprop="ratingValue">' . round($average_rating, 2) . '</span>/5 based on <span itemprop="reviewCount" class="easy_t_aggregate_rating_review_count" >' . $total_rated_testimonials . '</span> customer reviews</div>		
+			</div>
+		';
+		
+		return apply_filters('easy_t_aggregate_rating', $output, $count_query);
+	}
 	
-	return $count;
+	//if we are down here, we aren't doing an aggregate rating
+	//so return the count
+	return apply_filters('easy_t_testimonials_count', $count_query->found_posts, $count_query);
 }
 
 //shortcode mapping function for easy_testimonials_count
-//accepts two attributes, category and status
+//accepts three attributes, category and status and show_aggregate_rating
 function outputTestimonialsCount($atts){
 	//load shortcode attributes into an array
 	extract( shortcode_atts( array(
 		'category' => '',
-		'status' => 'publish'
+		'status' => 'publish',
+		'show_aggregate_rating' => false
 	), $atts ) );
 	
-	return easy_testimonials_count($category, $status);
+	return easy_testimonials_count($category, $status, $show_aggregate_rating);
 }
 
 if(!function_exists('word_trim')):
@@ -795,7 +837,7 @@ function outputRandomTestimonial($atts){
 	), $atts );
 	
 	extract($atts);
-	
+		
 	ob_start();
 	
 	//load testimonials into an array and output to the buffer
@@ -897,7 +939,13 @@ function outputTestimonials($atts){
 	
 	// handle paging
 	$nopaging = ($testimonials_per_page <= 0);
-	$paged = !empty($_REQUEST['testimonial_page']) && intval($_REQUEST['testimonial_page']) > 0 ? intval($_REQUEST['testimonial_page']) : 1;
+
+	$testimonial_page = 1;
+	if ( get_query_var('testimonial_page') ) {
+		$testimonial_page = get_query_var('testimonial_page');
+	}	
+	$paged = $testimonial_page;
+	
 	if (!$nopaging && $paginate && $paginate != "all") {
 		//if $nopaging is false and $paginate is true, or max (but not "all"), then $testimonials_per_page is greater than 0 and the user is trying to paginate them
 		//sometimes paginate is true, or 1, or max -- they all indicate the same thing.  "max" comes from the widget, true or 1 come from the shortcode / old instructions
@@ -939,6 +987,11 @@ function outputTestimonials($atts){
 	return apply_filters('easy_t_testimonials_html', $content);
 }
 
+function easy_t_add_pagination_query_var($query_vars)
+{
+	$query_vars[] = 'testimonial_page';		
+	return $query_vars;
+}	
 
 /* 
  * Returns an URL template that can be passed as the 'base' param 
@@ -1214,7 +1267,8 @@ function outputAllThemes($atts){
 	extract($atts);
 	
 	if($show_free_themes){
-		foreach($free_theme_array as $theme_slug => $theme_name){				
+		foreach($free_theme_array as $theme_slug => $theme_name){	
+			
 			$atts['theme'] = $theme_slug;
 			
 			ob_start();
@@ -1442,7 +1496,7 @@ function single_testimonial_content_filter($content){
 			'show_other' => 1,
 			'width' => '100%'
 		);
-			
+				
 		//build and return the single testimonial html		
 		$content = easy_t_get_single_testimonial_html($postid, $atts, true);
 	}
@@ -1639,7 +1693,7 @@ function build_single_testimonial($testimonial,$show_thumbs=false,$show_title=fa
 	
 ?>
 	<div class="<?php echo $output_theme; ?> <?php echo $attribute_classes; ?> easy_t_single_testimonial" <?php echo $width; ?>>
-		<blockquote itemprop="review" itemscope itemtype="http://schema.org/Review" class="easy_testimonial" style="<?php echo $testimonial_body_css; ?>">
+		<blockquote itemscope itemtype="http://schema.org/Review" class="easy_testimonial" style="<?php echo $testimonial_body_css; ?>">
 			<?php if ($show_thumbs) {
 				echo $testimonial['image'];
 			} ?>		
@@ -1793,7 +1847,8 @@ function easy_testimonials_build_metadata_html($testimonial, $author_class, $sho
 //passed a string
 //finds a matching theme or loads the theme currently selected on the options page
 //returns appropriate class name string to match theme
-function easy_t_get_theme_class($theme_string){	
+//if return_theme_base is true, returns the base string of the theme (without the style modifier)
+function easy_t_get_theme_class($theme_string, $return_theme_base = false){	
 	$the_theme = get_option('testimonials_style', 'default_style');
 	
 	//load options
@@ -1803,6 +1858,18 @@ function easy_t_get_theme_class($theme_string){
 	if(strlen($theme_string)>2){
 		//if the theme string is valid
 		if(in_array($theme_string, $theme_array)){			
+			//if returning theme base for pro themes, go ahead and do so now
+			if( $return_theme_base ){
+				//loop through the pro theme array
+				foreach( $pro_theme_array as $pro_theme_base => $this_pro_theme_array ) {
+					//if a matching key to our specific pro theme is found
+					if(isset($this_pro_theme_array[$theme_string])){
+						//return the base string of that pro theme, from the array
+						return $pro_theme_base;
+					}
+				}
+			}
+			
 			//use the theme string
 			$the_theme = $theme_string;
 		}
@@ -1873,9 +1940,18 @@ function easy_testimonials_admin_init($hook)
 		wp_register_style( 'easy_testimonial_style', plugins_url('include/css/style.css', __FILE__) );
 		wp_enqueue_style( 'easy_testimonial_style' );
 		
-		//pro themes
-		wp_register_style( 'easy_testimonials_pro_styles', plugins_url('include/css/easy_testimonials_pro.css', __FILE__) );
-		wp_enqueue_style( 'easy_testimonials_pro_styles' );
+		//register and enqueue pro themes for preview purposes
+		easy_t_register_pro_themes();
+		wp_enqueue_style( 'bubble_style' );
+		wp_enqueue_style( 'avatar-right-style' );
+		wp_enqueue_style( 'avatar-right-style-50x50' );
+		wp_enqueue_style( 'avatar-left-style' );
+		wp_enqueue_style( 'avatar-left-style-50x50' );
+		wp_enqueue_style( 'card_style' );
+		wp_enqueue_style( 'elegant_style' );
+		wp_enqueue_style( 'business_style' );
+		wp_enqueue_style( 'modern_style' );
+		wp_enqueue_style( 'notepad_style' );
 	}
 	
 	// also include some styles on *all* admin pages
@@ -1989,6 +2065,8 @@ function add_hello_t_testimonials(){
 		$response = json_decode($response['body']);
 		
 		if(isset($response->testimonials)){
+			$testimonial_author_id = get_option('easy_t_testimonial_author', 1);
+			
 			foreach($response->testimonials as $testimonial){				
 				
 				//look for a testimonial with the same HTID
@@ -2024,7 +2102,8 @@ function add_hello_t_testimonials(){
 						'tags_input'    => $tags,
 						'post_status'   => 'publish',
 						'post_type'     => 'testimonial',
-						'post_date'		=> $testimonial->publish_time
+						'post_date'		=> $testimonial->publish_time,
+						'post_author' 	=> $testimonial_author_id
 					);
 				
 					$new_id = wp_insert_post($post);
@@ -2493,6 +2572,9 @@ add_filter('the_content', 'single_testimonial_content_filter');
 if (isValidKey()) {
 	add_action( 'wp_dashboard_setup', 'easy_t_add_dashboard_widget');		
 }
+
+//add query var for paging
+add_filter( 'query_vars', 'easy_t_add_pagination_query_var' );
 
 //flush rewrite rules - only do this once!
 register_activation_hook( __FILE__, 'easy_testimonials_rewrite_flush' );

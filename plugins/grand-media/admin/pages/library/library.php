@@ -129,6 +129,7 @@ if($gmProcessor->user_options['grid_cell_fit_gmedia']) {
 include(GMEDIA_ABSPATH . 'admin/tpl/modal-share.php');
 
 if($gmProcessor->edit_mode) {
+    $customfield_meta_type = 'gmedia';
     include(GMEDIA_ABSPATH . 'admin/tpl/modal-customfield.php');
 } ?>
 

@@ -43,6 +43,7 @@
 		<li><a href="#testimonial_submission">Front End Testimonial Submission</a></li>
 		<li><a href="#testimonial_filters">Testimonial Filters</a></li>
 		<li><a href="#testimonial_count">Outputting a Count of your Testimonials</a></li>
+		<li><a href="#testimonial_aggregate_rating">Outputting an Aggregate Rating of your Testimonials</a></li>
 		<li><a href="#testimonial_search">Outputting a Testimonials Search Form</a></li>
 		<li><a href="#testimonial_options">Options</a></li>
 	</ol>
@@ -283,7 +284,15 @@
 			</li>
 			<li><strong>Note:</strong> this Shortcode only displays the numerical count -- you will need to add any words yourself.  For example, "There are currently [testimonials_count] Testimonials on your website!"</li>
 		</ul>
-	</div>	
+	</div>	<div id="testimonial_aggregate_rating">
+		<h3 id="outputting-an-aggregate-rating-of-your-testimonials">Outputting an Aggregate Rating of all Testimonials on your Site</h3>
+		<ul>
+			<li>To display aggregate rating of your Testimonials, use the following shortcode where you want the schema.org markup to appear: <br/>
+				<textarea>[testimonials_count show_aggregate_rating='1']</textarea>
+			</li>
+			<li>**Note:** This will use the Global Item Reviewed option, from your plugin's settings tabs.</li>
+		</ul>
+	</div>
 	<div id="testimonial_search">
 		<h3 id="outputting-a-testimonials-search-form">Outputting a Testimonials Search Form</h3>
 		<ul>

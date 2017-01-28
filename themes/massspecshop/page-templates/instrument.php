@@ -28,7 +28,7 @@
 
 get_header(); ?>
   <div class="container">
-<div class="mob_heading"><h2><?php //the_field('parts_heading_for_mobile');?>Service</h2></div>
+<div class="mob_heading"><h2>Instruments for sale</h2></div>
 <div class="product_block">
 <?php
 

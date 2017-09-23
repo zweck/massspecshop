@@ -178,11 +178,11 @@
   <!-- .entry-meta -->
 </article>
 <!-- #post -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.easing.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.mousewheel.js"></script>
-<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
 <script>
 
  $(document).on('spam.wpcf7', function () {

@@ -31,6 +31,14 @@ blockquote .testimonial_author cite .testimonial-client {
 	text-align: center;
 }
 
+.page-template-full-width .entry-title {
+  display: none;
+}
+
+.page-template-full-width .entry-title {
+  box-shadow: 0;
+}
+
 @media screen and (max-width: 767px){
 
 	.logo img { max-width: 100%; }
